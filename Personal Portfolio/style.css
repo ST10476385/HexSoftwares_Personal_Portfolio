@@ -1,0 +1,541 @@
+/* ============================================
+   GENERAL RESET
+   Removes default browser spacing and ensures consistent box-sizing
+   ============================================ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ============================================
+   CSS VARIABLES (Custom Properties)
+   Defines the pink color palette used throughout the site
+   ============================================ */
+:root {
+    /* Pink Color Palette */
+    --primary-color: #2d3436;      /* Dark gray for headings */
+    --secondary-color: #e84393;    /* Deep pink for accents/buttons */
+    --accent-color: #fd79a8;       /* Light pink for tags/highlights */
+    --text-color: #636e72;         /* Gray for body text */
+    --light-bg: #ffe6f2;           /* Very light pink for section backgrounds */
+    --white: #ffffff;              /* White for cards/containers */
+    --shadow: 0 4px 20px rgba(232, 67, 147, 0.15);  /* Pink-tinted shadow */
+}
+
+/* ============================================
+   BASE STYLES
+   Sets default font, colors, and background for the entire page
+   ============================================ */
+body {
+    font-family: 'Poppins', sans-serif;  /* Google Font - modern and clean */
+    line-height: 1.6;                     /* Improves readability */
+    color: var(--primary-color);          /* Uses CSS variable */
+    background-color: var(--white);
+}
+
+/* ============================================
+   CONTAINER
+   Centers content and limits maximum width for readability
+   ============================================ */
+.container {
+    max-width: 1100px;    /* Maximum width in pixels */
+    margin: 0 auto;       /* Centers horizontally */
+    padding: 0 20px;      /* Side padding for mobile */
+}
+
+/* ============================================
+   NAVIGATION BAR
+   Fixed top navigation with logo and links
+   ============================================ */
+.navbar {
+    position: fixed;          /* Stays at top when scrolling */
+    top: 0;
+    left: 0;
+    right: 0;
+    background: var(--white);
+    box-shadow: var(--shadow);
+    z-index: 1000;            /* Ensures it stays above other content */
+    padding: 15px 0;
+}
+
+/* Flexbox layout for navbar content */
+.navbar .container {
+    display: flex;
+    justify-content: space-between;  /* Logo left, links right */
+    align-items: center;
+}
+
+/* Logo styling - uses initials */
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--secondary-color);
+    text-decoration: none;
+}
+
+/* Navigation links container */
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 30px;                /* Space between each link */
+}
+
+/* Navigation link styling */
+.nav-links a {
+    text-decoration: none;
+    color: var(--primary-color);
+    font-weight: 500;
+    transition: color 0.3s;   /* Smooth color change on hover */
+}
+
+/* Navigation link hover state */
+.nav-links a:hover {
+    color: var(--secondary-color);
+}
+
+/* ============================================
+   HERO SECTION
+   First section with profile picture, name, and intro
+   ============================================ */
+.hero {
+    min-height: 100vh;              /* Full viewport height */
+    display: flex;
+    align-items: center;            /* Vertically centers content */
+    background: linear-gradient(135deg, #ffe6f2 0%, #ffd6e7 100%);  /* Pink gradient */
+    padding-top: 80px;              /* Space for fixed navbar */
+}
+
+/* Centers and limits width of hero content */
+.hero-content {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* Main heading - name */
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+    color: var(--primary-color);
+}
+
+/* Professional title styling */
+.hero .title {
+    font-size: 1.2rem;
+    color: var(--secondary-color);
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+/* Introduction paragraph */
+.hero .intro {
+    font-size: 1rem;
+    color: var(--text-color);
+    margin-bottom: 30px;
+    line-height: 1.8;
+}
+
+/* ============================================
+   PROFILE PICTURE
+   Circular image container with border and shadow
+   ============================================ */
+.profile-pic {
+    width: 180px;           /* Diameter of the circle */
+    height: 180px;
+    margin: 0 auto 25px;    /* Centers and adds bottom spacing */
+    border-radius: 50%;     /* Makes it circular */
+    overflow: hidden;       /* Hides any overflow */
+    border: 4px solid var(--secondary-color);  /* Pink border */
+    box-shadow: 0 8px 30px rgba(232, 67, 147, 0.3);  /* Pink shadow */
+}
+
+/* Ensures image fills the circle properly */
+.profile-pic img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;      /* Crops image to fill without distortion */
+}
+
+/* ============================================
+   BUTTON STYLES
+   Call-to-action button styling
+   ============================================ */
+.btn {
+    display: inline-block;
+    padding: 12px 30px;
+    background: var(--secondary-color);   /* Pink background */
+    color: var(--white);
+    text-decoration: none;
+    border-radius: 25px;                  /* Rounded corners */
+    font-weight: 600;
+    transition: transform 0.3s, box-shadow 0.3s;  /* Smooth hover effects */
+}
+
+/* Button hover state - lifts up with shadow */
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 20px rgba(232, 67, 147, 0.4);  /* Pink glow */
+}
+
+/* ============================================
+   SECTION STYLES
+   Shared styles for all page sections
+   ============================================ */
+section {
+    padding: 80px 0;         /* Vertical spacing for each section */
+}
+
+/* Section heading styles */
+.section-title {
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 40px;
+    color: var(--primary-color);
+    position: relative;
+}
+
+/* Creates a pink underline below section titles */
+.section-title::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background: var(--secondary-color);  /* Pink underline */
+    margin: 10px auto 0;
+}
+
+/* ============================================
+   ABOUT SECTION
+   Personal background and goals
+   ============================================ */
+.about {
+    background: var(--white);
+}
+
+/* Limits width for better readability */
+.about-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Paragraph spacing and color */
+.about-content p {
+    margin-bottom: 20px;
+    color: var(--text-color);
+    line-height: 1.8;
+}
+
+/* ============================================
+   SKILLS SECTION
+   Technical skills and tools displayed as tags
+   ============================================ */
+.skills {
+    background: var(--light-bg);  /* Light pink background */
+}
+
+/* Grid layout for skills categories */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));  /* Responsive columns */
+    gap: 30px;                    /* Space between grid items */
+}
+
+/* Card style for each skills category */
+.skills-category {
+    background: var(--white);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+}
+
+/* Category heading */
+.skills-category h3 {
+    margin-bottom: 20px;
+    color: var(--primary-color);
+}
+
+/* Container for skill tags - wraps to next line */
+.skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+/* Individual skill tag styling - pink pills */
+.skill-tag {
+    padding: 8px 16px;
+    background: var(--accent-color);   /* Light pink */
+    color: var(--primary-color);
+    border-radius: 20px;               /* Rounded pill shape */
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+/* ============================================
+   EXPERIENCE SECTION
+   Academic and project experience cards
+   ============================================ */
+.experience {
+    background: var(--white);
+}
+
+/* Limits width for readability */
+.experience-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Individual experience card */
+.experience-item {
+    background: var(--light-bg);  /* Light pink background */
+    padding: 30px;
+    border-radius: 10px;
+    margin-bottom: 20px;          /* Space between cards */
+    box-shadow: var(--shadow);
+}
+
+/* Experience card heading */
+.experience-item h3 {
+    margin-bottom: 10px;
+    color: var(--primary-color);
+}
+
+/* Time period styling - e.g., 'Current', 'Ongoing' */
+.experience-period {
+    color: var(--secondary-color);  /* Pink accent */
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+/* Experience description text */
+.experience-item p {
+    color: var(--text-color);
+    line-height: 1.7;
+}
+
+/* ============================================
+   EDUCATION SECTION
+   Academic background cards
+   ============================================ */
+.education {
+    background: var(--white);
+}
+
+.education-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.education-item {
+    background: var(--light-bg);
+    padding: 30px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    box-shadow: var(--shadow);
+}
+
+.education-item h3 {
+    margin-bottom: 10px;
+    color: var(--primary-color);
+}
+
+.education-period {
+    color: var(--secondary-color);
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.education-item p {
+    color: var(--text-color);
+    line-height: 1.7;
+}
+
+/* ============================================
+   CERTIFICATIONS SECTION
+   Certification badges/cards
+   ============================================ */
+.certifications {
+    background: var(--light-bg);
+}
+
+.certifications-content {
+    max-width: 800px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.certification-item {
+    background: var(--white);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    transition: transform 0.3s;
+}
+
+.certification-item:hover {
+    transform: translateY(-2px);
+}
+
+.certification-icon {
+    font-size: 2rem;
+}
+
+.certification-item h3 {
+    font-size: 1rem;
+    margin-bottom: 5px;
+    color: var(--primary-color);
+}
+
+.certification-item p {
+    font-size: 0.85rem;
+    color: var(--text-color);
+}
+
+/* ============================================
+   BLOG SECTION
+   Blog link and description
+   ============================================ */
+.blog {
+    background: var(--white);
+}
+
+.blog-content {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.blog-content > p {
+    color: var(--text-color);
+    margin-bottom: 25px;
+    line-height: 1.7;
+}
+
+.blog-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 15px 30px;
+    background: var(--secondary-color);
+    color: var(--white);
+    text-decoration: none;
+    border-radius: 25px;
+    font-weight: 600;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.blog-link:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 20px rgba(232, 67, 147, 0.4);
+}
+
+.blog-icon {
+    font-size: 1.2rem;
+}
+
+/* ============================================
+   CONTACT SECTION
+   Contact information and social links
+   ============================================ */
+.contact {
+    background: var(--light-bg);  /* Light pink background */
+}
+
+/* Centers contact content */
+.contact-content {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Intro text above contact links */
+.contact-content > p {
+    font-size: 1.1rem;
+    color: var(--text-color);
+    margin-bottom: 30px;
+}
+
+/* Vertical stack of contact links */
+.contact-links {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Individual contact link card */
+.contact-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 15px 25px;
+    background: var(--white);
+    color: var(--primary-color);
+    text-decoration: none;
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+    transition: transform 0.3s, box-shadow 0.3s;  /* Smooth hover effects */
+}
+
+/* Contact link hover state */
+.contact-link:hover {
+    transform: translateY(-2px);  /* Lifts up */
+    box-shadow: 0 8px 25px rgba(232, 67, 147, 0.2);  /* Pink shadow */
+}
+
+/* Icon size in contact links */
+.contact-icon {
+    font-size: 1.2rem;
+}
+
+/* ============================================
+   FOOTER
+   Copyright notice at the bottom
+   ============================================ */
+.footer {
+    background: var(--primary-color);  /* Dark background */
+    color: var(--white);
+    text-align: center;
+    padding: 20px 0;
+}
+
+/* Copyright text */
+.footer p {
+    font-size: 0.9rem;
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   Mobile-friendly adjustments
+   ============================================ */
+@media (max-width: 768px) {
+    /* Hide navigation links on mobile */
+    .nav-links {
+        display: none;
+    }
+    
+    /* Smaller name on mobile */
+    .hero h1 {
+        font-size: 2rem;
+    }
+    
+    /* Smaller title on mobile */
+    .hero .title {
+        font-size: 1rem;
+    }
+    
+    /* Smaller section titles on mobile */
+    .section-title {
+        font-size: 1.5rem;
+    }
+    
+    /* Single column skills on mobile */
+    .skills-grid {
+        grid-template-columns: 1fr;
+    }
+}
